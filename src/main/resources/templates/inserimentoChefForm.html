@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChefFormInserimento</title>
+</head>
+<body>
+
+<form th:action="@{/admin/inserimentoChef}" method="post" th:object="${chef}">
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+    </div>
+
+    <div> nome: <input type="text" th:field="*{nome}" ></div>
+    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+    <div> cognome: <input type="text" th:field="*{cognome}" ></div>
+    <div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
+    <div> nazionalita: <input type="text" th:field="*{nazionalita}"></div>
+    <div th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></div>
+    <div> Manca la parte sui buffet </div>
+    <div> <button type="submit"> conferma </button> </div>
+</form>
+</body>
+</html>

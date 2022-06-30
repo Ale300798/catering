@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" th:href="@{/css/indexCss.css}" />
+</head>
+<body>
+<div id="divInizioPagina">
+    <p id="paragrafoInizioPagina"> Petrilli Catering </p>
+    <a id="accedi" th:href="@{/login}"> Accedi </a>
+    <a id="registrati" th:href="@{/register}"> Registrati </a>
+</div>
+<nav id="navBar">
+    <div id="divlistaNavBar">
+    <ul id="vociContainer">
+        <li class ="voci" href=""> Home </li>
+        <li class ="voci" href=""> Catering </li>
+        <li class ="voci" href=""><a th:href="@{/ChefFormInserimento}"> Chef </a></li>
+        <li class ="voci" href=""> Contatti </li>
+    </ul>
+    </div>
+</nav>
+
+<div id="divImgSlideShow">
+    <img class="imgSlideShow" th:src="@{/ImmagineCatering1.jpg}" alt="">
+    <p class="ScrittaSopraImmagine"> Matrimoni </p>
+</div>
+<div id="Catering">
+ <div id="divPreParagrafo">
+     <p class="ScrittaPreParagrafo"> Catering </p>
+ </div>
+
+ <div class="divCat">
+     <div id="divImgCatPesce">
+     <img id="imgCatPesce" th:src="@{/ImmagineCateringPesce.jpg}" alt="">
+     </div>
+
+     <div id="divScrittaCatPesce">
+        Devo trovare qualcosa da scrivere qui a lato, giusto per fare scena perche sono a corto di idee per piu o meno ci sono forse dovrei pensare a qualcos'altro. Tutto sommato è ok la cosa mi aspettavo di peggio sicuramente sto scrivendo cose a caso senza dare nemmeno importanza alla punteggiatura
+        ringrazio Sasha per avermi insegnato a usare html css e java script anche se ancora non ce l'ho messo, scrivo roba a caso giusto per riempire tutta la div, voglio vedere com'è alla fine. Ho quasi scritto abbastanza, manca poco, sono quasi arrivato alla fine.
+     </div>
+ </div>
+
+ <div class="divCat">
+
+     <div id="divScrittaCatCarne">
+         Devo trovare qualcosa da scrivere qui a lato, giusto per fare scena perche sono a corto di idee per piu o meno ci sono forse dovrei pensare a qualcos'altro. Tutto sommato è ok la cosa mi aspettavo di peggio sicuramente sto scrivendo cose a caso senza dare nemmeno importanza alla punteggiatura
+         ringrazio Sasha per avermi insegnato a usare html css e java script anche se ancora non ce l'ho messo, scrivo roba a caso giusto per riempire tutta la div, voglio vedere com'è alla fine. Ho quasi scritto abbastanza, manca poco, sono quasi arrivato alla fine.
+     </div>
+
+     <div id="divImgCatCarne">
+         <img id="imgCatCarne" th:src="@{/ImmagineCateringPesce3.jpg}" alt="">
+     </div>
+
+ </div>
+</div>
+
+
+</body>
+</html>

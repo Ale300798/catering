@@ -1,0 +1,157 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+#divInizioPagina {
+    background-color: white;
+    height:60px;
+}
+#paragrafoInizioPagina {
+    font-family: "Brush Script MT";
+    font-size: 40px;
+    margin-left: 40%;
+    background-color: white;
+}
+
+#accedi {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    margin-right: 2%;
+}
+#registrati {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    font-size: 20px;
+    margin-right:2%;
+}
+
+#navBar {
+    border-top: black;
+    border-top-style: solid;
+    border-bottom: black;
+    border-bottom-style: solid;
+    height: 40px;
+    width: 100%;
+    position: sticky;
+
+}
+
+#vociContainer {
+    list-style: none;
+    line-height: 30px;
+    display: flex;
+}
+
+#divlistaNavBar {
+    height: 100%;
+}
+
+#divImgSlideShow {
+    height: 600px;
+    width: 100%;
+}
+
+.imgSlideShow {
+    height: 100%;
+    width: 100%;
+    z-index: 90;
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+}
+
+.ScrittaSopraImmagine {
+    z-index: 100;
+    color:white;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    font-size: 90px;
+    font-family: "Brush Script MT";
+    background-color: transparent;
+}
+
+#divPerSlideShow {
+    margin-top: 100px;
+    height: 300px;
+    width: 400px;
+}
+
+.voci {
+    font-size: 20px;
+    color: black;
+    margin-left: 16%;
+    border-bottom: black;
+    border-bottom-style: solid;
+}
+#Catering {
+    height:1000px;
+    background-color: #cecdcd;
+}
+#divPreParagrafo {
+    height: 7%;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color:black;
+}
+
+.ScrittaPreParagrafo {
+    margin-left: 45%;
+    font-size: 50px;
+    font-family: "Brush Script MT";
+    color:black;
+}
+
+.divCat {
+    height: 300px;
+    width:90%;
+    margin-top: 7%;
+    margin-left: 10%;
+    display: flex;
+    color:black;
+    font-family: "Brush Script MT";
+    font-size: 30px;
+}
+
+#divImgCatPesce {
+    height: 100%;
+    width: 300px;
+}
+
+#imgCatPesce {
+    height: 100%;
+    width: 100%;
+}
+
+#divScrittaCatPesce {
+    margin-left: 100px;
+    width: 50%;
+}
+
+#divImgCatCarne {
+    height: 100%;
+    width: 300px;
+}
+#imgCatCarne {
+    height: 100%;
+    width: 100%;
+}
+
+#divScrittaCatCarne {
+    margin-right: 100px;
+    width:50%;
+}
+
+
+
+
+
+
+
+
+
