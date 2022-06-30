@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modifica buffet form</title>
+</head>
+<body>
+<form th:action="@{/admin/modificaBuffet}" method="post" th:object="${buffet}">
+    <div>
+        <div>
+            <span> nome: </span>
+            <input type="text" name="nome" th:text="$*{nome}">
+        </div>
+
+        <div>
+            <span> descrizione: </span>
+            <input type="text" name="descrizione" th:text="$*{descrizione}">
+        </div>
+
+        <div th:object="${chef}">
+        <div>
+            <span> nome chef: </span>
+            <input name="nomeChef" th:text="$*{nome}">
+        </div>
+
+        <div>
+            <span> cognome chef: </span>
+            <input name="cognomeChef" th:text="*{cognome}">
+        </div>
+
+        <div>
+            <span> nazionalita chef: </span>
+            <input name="nazionalitaChef" th:text="$*{nazionalita}">
+        </div>
+        </div>
+
+        <div>
+            <div th:each="piatto : ${piatti}">
+                <span> nome: </span>
+                <input th:text="$*{.nome}">
+                <span> descrizione: </span>
+                <input th:text="$*{.descrizione}">
+                <div th:each="ingrediente : ${ingredienti}">
+                    <span> nome: </span>
+                    <input th:text="$*{nome}">
+                    <span> origine: </span>
+                    <input th:text="$*{origine}">
+                    <span> descrizione: </span>
+                    <input th:text="$*{descrizione}">
+                </div>
+            </div>
+
+
+        </div>
+
+        <div>
+        </div>
+
+
+    </div>
+    <button type="submit"> conferma modifiche </button>
+
+</form>
+
+
+</body>
+</html>
