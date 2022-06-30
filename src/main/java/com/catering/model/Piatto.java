@@ -5,19 +5,15 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-public class Buffet {
+public class Piatto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
-    @NotBlank
-    private Chef chef;
-    @OneToMany
-    private List<Piatto> piatti;
     @NotBlank
     private String nome;
     private String descrizione;
 
-
+    @OneToMany
+    private List<Ingrediente> ingredienti;
 }
