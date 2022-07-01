@@ -18,8 +18,17 @@ public class ChefService {
         chefRepo.save(chef);
     }
 
+
+    @Transactional
+    public void deleteIngredienteById(Long id) {
+        this.chefRepo.deleteById(id);
+    }
+
     public boolean alreadyExists(Chef chef) {
         return this.chefRepo.existsByNomeAndCognomeAndNazionalita(chef.getNome(), chef.getCognome(), chef.getNazionalita());
+    }
 
+    public Chef findChefById(Long id) {
+        return this.chefRepo.findById(id).get();
     }
 }

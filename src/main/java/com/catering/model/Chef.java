@@ -16,7 +16,7 @@ public class Chef {
     private String cognome;
     @NotBlank
     private String nazionalita;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Buffet> buffetProposti;
 
     public Long getId() {
