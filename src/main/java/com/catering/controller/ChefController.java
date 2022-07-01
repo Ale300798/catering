@@ -1,6 +1,7 @@
 package com.catering.controller;
 
 
+import com.catering.model.Buffet;
 import com.catering.model.Chef;
 import com.catering.validator.ChefValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,30 @@ public class ChefController {
         return "inserimentoChefForm.html";
     }
 
-
     @GetMapping("/ChefFormInserimento")
     public String getFormIns(Model model) {
         model.addAttribute( "chef", new Chef());
         return "inserimentoChefForm.html";
     }
+
+
+
+    @GetMapping("/admin/modificaChefForm")
+    public String modifica(@ModelAttribute("buffet") Chef chef, Model model) {
+        model.addAttribute("chef", this.chefService.findChefById(chef.getId()));
+        return "modificaChefForm";
+    }
+
+    @PostMapping("/admin/modificaChef")
+    public String modificaChef(@Valid @ModelAttribute("chef") Chef chef, Model model, BindingResult bindingResults){
+
+        if(!bindingResults.hasErrors()) {
+            this.chefService.save(chef);
+            model.addAttribute("chef", chef);
+            return "chefModificatoVisualizza";
+        }
+        return "modificaChefForm";
+    }
+
 
 }

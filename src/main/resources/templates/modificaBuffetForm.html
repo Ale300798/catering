@@ -5,48 +5,48 @@
     <title>modifica buffet form</title>
 </head>
 <body>
-<form th:action="@{/admin/modificaBuffet}" method="post" th:object="${buffet}">
+<form th:action="@{/admin/modificaBuffet}" method="post">
     <div>
         <div>
             <span> nome: </span>
-            <input type="text" name="nome" th:text="$*{nome}">
+            <input type="text" name="nome" th:text="${buffet.nome}">
         </div>
 
         <div>
             <span> descrizione: </span>
-            <input type="text" name="descrizione" th:text="$*{descrizione}">
+            <input type="text" name="descrizione" th:text="${buffet.descrizione}">
         </div>
 
-        <div th:object="${chef}">
+        <div>
         <div>
             <span> nome chef: </span>
-            <input name="nomeChef" th:text="$*{nome}">
+            <input name="nomeChef" th:text="${buffet.chef.nome}">
         </div>
 
         <div>
             <span> cognome chef: </span>
-            <input name="cognomeChef" th:text="*{cognome}">
+            <input name="cognomeChef" th:text="${buffet.chef.cognome}">
         </div>
 
         <div>
             <span> nazionalita chef: </span>
-            <input name="nazionalitaChef" th:text="$*{nazionalita}">
+            <input name="nazionalitaChef" th:text="${buffet.chef.nazionalita}">
         </div>
         </div>
 
         <div>
-            <div th:each="piatto : ${piatti}">
+            <div th:each="piatto : ${buffet.piatti}">
                 <span> nome: </span>
-                <input th:text="$*{.nome}">
+                <input th:text="${piatto.nome}">
                 <span> descrizione: </span>
-                <input th:text="$*{.descrizione}">
+                <input th:text="${piatto.descrizione}">
                 <div th:each="ingrediente : ${ingredienti}">
                     <span> nome: </span>
-                    <input th:text="$*{nome}">
+                    <input th:text="${ingrediente.nome}">
                     <span> origine: </span>
-                    <input th:text="$*{origine}">
+                    <input th:text="${ingrediente.origine}">
                     <span> descrizione: </span>
-                    <input th:text="$*{descrizione}">
+                    <input th:text="${ingredeinte.descrizione}">
                 </div>
             </div>
 
