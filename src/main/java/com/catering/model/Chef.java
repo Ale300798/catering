@@ -1,5 +1,8 @@
 package com.catering.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -17,6 +20,7 @@ public class Chef {
     @NotBlank
     private String nazionalita;
     @OneToMany(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
     private List<Buffet> buffetProposti;
 
     public Long getId() {

@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -30,22 +28,15 @@ public class IngredienteController {
         return "inserisciIngredienteForm";
     }
 
-
-
-    @GetMapping("/admin/modificaIngredienteForm")
-    public String modifica(@ModelAttribute("ingrediente") Ingrediente ingrediente, Model model) {
-        model.addAttribute("chef", this.ingredienteService.findIngredienteById(ingrediente.getId()));
-        return "modificaIngredienteForm";
+    @GetMapping("/visualizza/Ingredienti")
+    public String visualizzaIngredienti(Model model) {
+        model.addAttribute("ingredienti", this.ingredienteService.ingredienti());
+        return "visualizzaIngredienti";
     }
 
-    @PostMapping("/admin/modificaIngrediente")
-    public String modificaIngrediente(@Valid @ModelAttribute("buffet") Ingrediente ingrediente, Model model, BindingResult bindingResults){
-
-        if(!bindingResults.hasErrors()) {
-            this.ingredienteService.saveIngrediente(ingrediente);
-            model.addAttribute("ingrediente", ingrediente);
-            return "ingredienteModificatoVisualizza";
-        }
-        return "modificaIngredienteForm";
+    @GetMapping("/visualizza/Ingrediente/{id}")
+    public String visualizzaIngrediente(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("ingrediente", this.ingredienteService.findIngredienteById(id));
+        return "visualizzaIngrediente";
     }
 }

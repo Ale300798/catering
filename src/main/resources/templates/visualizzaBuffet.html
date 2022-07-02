@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+  <div>
+    <span> nome: </span>
+    <span th:text="${buffet.nome}"></span>
+  </div>
+
+  <div>
+    <span> descrizione: </span>
+    <span th:text="${buffet.descrizione}"> </span>
+  </div>
+
+  <div>
+    <div>
+      <span> nome chef: </span>
+      <span th:text="${buffet.chef.nome}"> </span>
+    </div>
+
+    <div>
+      <span> cognome chef: </span>
+      <span th:text="${buffet.chef.cognome}"> </span>
+    </div>
+
+    <div>
+      <span> nazionalita chef: </span>
+      <span  th:text="${buffet.chef.nazionalita}"> </span>
+    </div>
+  </div>
+
+  <div>
+    <div th:each="piatto : ${buffet.piatti}">
+      <div>
+        <span> nome: </span>
+        <span th:text="${piatto.nome}"> </span>
+      </div>
+      <div>
+        <span> descrizione: </span>
+        <span th:text="${piatto.descrizione}"> </span>
+      </div>
+        <div th:each="ingrediente : ${piatto.ingredienti}">
+        <div>
+          <span> nome: </span>
+          <span th:text="${ingrediente.nome}"> </span>
+        </div>
+          <div>
+          <span> origine: </span>
+          <span th:text="${ingrediente.origine}"> </span>
+          </div>
+          <div>
+          <span> descrizione: </span>
+          <span th:text="${ingrediente.descrizione}"> </span>
+          </div>
+        </div>
+    </div>
+
+
+  </div>
+
+</body>
+</html>
