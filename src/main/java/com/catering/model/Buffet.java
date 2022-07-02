@@ -11,7 +11,6 @@ public class Buffet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne
-    @NotBlank
     private Chef chef;
 
 

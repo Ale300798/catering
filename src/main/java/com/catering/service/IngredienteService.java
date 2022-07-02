@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.List;
 
 @Service
 public class IngredienteService {
@@ -31,6 +32,10 @@ public class IngredienteService {
     @Transactional
     public void deleteIngredienteById(Long id) {
         this.ingredienteRepo.deleteById(id);
+    }
+
+    public List<Ingrediente> ingredienti() {
+        return this.ingredienteRepo.findAll();
     }
 
 }

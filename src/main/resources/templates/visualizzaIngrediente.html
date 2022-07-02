@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza ingrediente</title>
+</head>
+<body>
+<div th:object="${ingrediente}">
+    <div>
+        <span> Nome : </span>
+        <span th:text="*{nome}"></span>
+    </div>
+    <div>
+        <span> Origine : </span>
+        <span th:text="*{origine}"></span>
+    </div>
+    <div>
+        <span> Descrizione : </span>
+        <span th:text="*{descrizione}"></span>
+    </div>
+
+</div>
+
+<footer><a href="/"> Home  </a> </footer>
+
+</body>
+</html>

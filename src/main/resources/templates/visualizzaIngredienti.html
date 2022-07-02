@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza Ingredienti</title>
+</head>
+<body>
+
+<div>
+    <div th:each="ingrediente : ${ingredienti}">
+        <div>
+            <span> Nome : </span>
+            <a th:href="@{'/visualizza/Ingrediente/' + ${ingrediente.id}}"><span th:text="${ingrediente.nome}"></span></a>
+        </div>
+        <div>
+            <span> Origine : </span>
+            <span th:text="${ingrediente.origine}"></span>
+        </div>
+        <div>
+            <span> Descrizione : </span>
+            <span th:text="${ingrediente.descrizione}"></span>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

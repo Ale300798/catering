@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizza buffets</title>
+</head>
+<body>
+
+<div>
+    <div th:each="buffet : ${buffets}">
+    <a th:href="@{'/visualizzaBuffet/' + ${buffet.id}}"> <span th:text="${buffet.nome}"></span></a>
+        <a th:href="@{'/admin/modifica/buffet/form/' + ${buffet.id}}"> modifica </a>
+    </div>
+</div>
+
+<footer><a href="/"> Home </a></footer>
+
+</body>
+</html>

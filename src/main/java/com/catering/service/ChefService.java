@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class ChefService {
 
     @Autowired
     private ChefRepository chefRepo;
+
 
     @Transactional
     public void save(Chef chef) {
@@ -30,5 +32,9 @@ public class ChefService {
 
     public Chef findChefById(Long id) {
         return this.chefRepo.findById(id).get();
+    }
+
+    public List<Chef> chefs() {
+        return this.chefRepo.findAll();
     }
 }

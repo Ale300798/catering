@@ -39,7 +39,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // authorization paragraph: qui definiamo chi può accedere a cosa
                 .authorizeRequests()
                 // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/css/**", "/images/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/css/**", "/images/**", "/visualizza/**").permitAll()
                 // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register
                 .antMatchers(HttpMethod.POST, "/login", "/register", "/modifica").permitAll()
                 // solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
@@ -47,6 +47,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/chef/**").hasAnyAuthority(CHEF_ROLE)
                 .antMatchers(HttpMethod.POST, "/chef/**").hasAnyAuthority(CHEF_ROLE)
+
                 // tutti gli utenti autenticati possono accere alle pagine rimanenti
                 .anyRequest().authenticated()
 
@@ -59,7 +60,6 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // se il login ha successo, si viene rediretti al path /default
                 .defaultSuccessUrl("/default")
 
-
                 // logout paragraph: qui definiamo il logout
                 .and().logout()
                 // il logout è attivato con una richiesta GET a "/logout"
@@ -68,6 +68,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/index")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
+
     }
 
     /**
