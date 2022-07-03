@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza Piatti per modifica</title>
+</head>
+<body>
+
+<div th:each="piatto : ${piatti}">
+    <div>
+        <a th:href="@{'/admin/modificaPiatto' + ${piatto.id}}"> <span th:text="${piatto.nome}"></span></a>
+    </div>
+</div>
+
+<footer><a href="/"> Home </a></footer>
+
+</body>
+</html>

@@ -14,7 +14,7 @@ public class Piatto {
     private String nome;
     private String descrizione;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Ingrediente> ingredienti;
 
     public Long getId() {

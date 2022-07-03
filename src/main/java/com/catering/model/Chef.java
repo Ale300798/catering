@@ -19,7 +19,7 @@ public class Chef {
     private String cognome;
     @NotBlank
     private String nazionalita;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
     private List<Buffet> buffetProposti;
 

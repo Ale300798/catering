@@ -14,7 +14,7 @@ public class Buffet {
     private Chef chef;
 
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Piatto> piatti;
     @NotBlank
     private String nome;
