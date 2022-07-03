@@ -18,39 +18,12 @@
         </div>
 
         <div>
-        <div>
-
-            <span> nome chef: </span>
-            <input name="nomeChef" th:field="${buffet.chef.nome}" th:value="${buffet.chef.nome}">
-        </div>
-
-        <div>
-            <span> cognome chef: </span>
-            <input name="cognomeChef" th:field="${buffet.chef.cognome}" th:value="${buffet.chef.cognome}">
-        </div>
-
-        <div>
-            <span> nazionalita chef: </span>
-            <input name="nazionalitaChef" th:field="${buffet.chef.nazionalita}" th:value="${buffet.chef.nazionalita}">
-        </div>
-        </div>
-
-        <div>
-            <div th:each="piatto : ${buffet.piatti}">
-                <span> nome: </span>
-                <input th:value="${piatto.nome}">
-                <span> descrizione: </span>
-                <input th:value="${piatto.descrizione}">
-                <div th:each="ingrediente : ${ingredienti}">
-                    <span> nome: </span>
-                    <input th:value="${ingrediente.nome}">
-                    <span> origine: </span>
-                    <input th:value="${ingrediente.origine}">
-                    <span> descrizione: </span>
-                    <input th:value="${ingredeinte.descrizione}">
-                </div>
-            </div>
-
+       <div>
+           <a th:href="@{'/admin/modificaChef/' + ${buffet.chef.id}}"><span> modifica Chef </span> </a>
+       </div>
+       <div>
+           <a th:href="@{'/admin/visualizzaPiatti/' + ${buffet.id}}"></a>
+       </div>
 
         </div>
 

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza tutti i piatti che non stanno nel buffet</title>
+</head>
+<body>
+<div> Scegli il piatto da aggiungere al buffet </div>
+<div th:each="piatto : ${piatti}">
+    <a th:href="@{'/admin/aggiungiPiattoBuffet/' + ${id} + '/' + ${piatto.id}}"> <span th:text="${piatto.nome}"></span></a>
+</div>
+
+<footer><a href="/"> Home </a></footer>
+
+</body>
+</html>

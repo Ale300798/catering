@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>modifica chef </title>
 </head>
 <body>
+<form th:action="@{'/admin/modificaChef/' + ${chef.id}}" method="post">
+    <div th:object="${chef}">
+        <div>
+            <span> Nome: </span>
+            <input type="text" th:field="${chef.nome}" th:value="${chef.nome}">
+        </div>
+        <div>
+            <span> Cognome: </span>
+            <input type="text" th:field="${chef.cognome}" th:value="${chef.cognome}">
+        </div>
+        <div>
+            <span> Nazionalita: </span>
+            <input type="text" th:field="${chef.nazionalita}" th:value="${chef.nazionalita}">
+        </div>
+
+        <a th:href="@{'/admin/visualizzaBuffetProposti' + ${chef.id}}"> Buffet proposti </a>
+
+        <button type="submit"> Conferma modifiche </button>
+
+    </div>
+</form>
 
 </body>
 </html>
