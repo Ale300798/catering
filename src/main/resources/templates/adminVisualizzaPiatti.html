@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza piatti per admin</title>
+</head>
+<body>
+
+<div>
+    <ul>
+    <div th:each="piatto : ${piatti}">
+        <li>
+            <a th:href="@{'/admin/modificaPiattoForm/' + ${piatto.id}}"> <span th:text="${piatto.nome}"></span> </a>
+            <a th:href="@{'/admin/eliminaPiatto/' + ${piatto.id}}"> elimina </a>
+        </li>
+    </div>
+    </ul>
+    <div>
+        <a th:href="@{'/admin/inserimentoPiattoForm'}"> aggiungi piatto </a>
+    </div>
+</div>
+
+</body>
+</html>

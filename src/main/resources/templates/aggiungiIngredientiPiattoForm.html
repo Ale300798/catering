@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scegli ingrediente da aggiungere al piatto selezionato</title>
+</head>
+<body>
+<h2> Scegli ingrediente da aggiungere al piatto <span th:text="${nomePiatto}"></span> </h2>
+
+<ul>
+ <div th:each="ingrediente : ${ingredienti}">
+     <li>
+         <a th:href="@{'/admin/aggiungiIngrediente/' + ${id} + '/' + ${ingrediente.id}}" th:text="${ingrediente.nome}"></a>
+     </li>
+
+
+ </div>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form inserimento ingrediente</title>
+</head>
+<body>
+<form th:action="@{/admin/inserisciIngrediente}" th:object="${ingrediente}" method="post">
+    <div>
+        <span> Nome: </span>
+        <input type="text" th:field="*{nome}">
+    </div>
+    <div>
+        <span> Origine: </span>
+        <input type="text"  th:field="*{origine}">
+    </div>
+    <div>
+        <span> Descrizione: </span>
+        <input type="text"  th:field="*{descrizione}">
+    </div>
+
+    <button type="submit"> conferma </button>
+
+
+</form>
+
+</body>
+</html>

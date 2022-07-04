@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza chefs</title>
+</head>
+<body>
+
+<div>
+    <div>
+        <ul>
+         <div th:each="chef : ${chefs}">
+             <a th:href="@{'/admin/modificaChefForm/' + ${chef.id}}"> <span th:text="${chef.nome}"></span></a>
+             <a th:href="@{'/admin/eliminaChef' + ${chef.id}}"> elimina </a>
+         </div>
+        </ul>
+        <a th:href="@{/admin/inserisciChef}"> inserisci nuovo chef </a>
+    </div>
+</div>
+
+</body>
+</html>

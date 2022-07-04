@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inserisci chef al buffet</title>
+</head>
+<body>
+
+<div>
+    <div th:each="chef : ${chefs}">
+        <span> Nome : </span>
+        <a th:href="@{'/admin/aggiungiChefBuffet/' + ${id} + '/' + ${chef.id}}"> <span th:text="${chef.nome}"></span></a>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -5,7 +5,7 @@
     <title>inserimento buffet form</title>
 </head>
 <body>
-<form th:action="@{/admin/inserimentoBuffet}" method="post" th:object="${buffet}">
+<form th:action="@{/admin/inserisciChefBuffet}" method="post" th:object="${buffet}">
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
     </div>
@@ -14,7 +14,6 @@
     <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
     <div> descrizione: <input type="text" th:field="*{descrizione}"></div>
     <div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
-    <div> Manca la parte sullo chef e i piatti </div>
     <div> <button type="submit"> conferma </button> </div>
 </form>
 

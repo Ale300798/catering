@@ -37,4 +37,8 @@ public class ChefService {
     public List<Chef> chefs() {
         return this.chefRepo.findAll();
     }
+
+    public int updateChef(String nome, String cognome, String nazionalita, Long id) {
+        return this.chefRepo.updateChef(nome, cognome, nazionalita, id);
+    }
 }

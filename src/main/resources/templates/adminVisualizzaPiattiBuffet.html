@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza piatti buffet</title>
+</head>
+<body>
+
+<div>
+    <div th:each="piatto : ${piatti}">
+        <div>
+            <span> Nome: </span>
+            <a th:href="@{'/admin/modificaPiatto/' + ${piatto.id}}"> <span th:text="${piatto.nome}"></span></a>
+            <a th:href="@{'/admin/eliminaPiattoBuffet/' + ${id} + '/' + ${piatto.id}}"> togli piatto </a>
+        </div>
+    </div>
+    <div>
+        <a th:href="@{'/admin/visualizzaPiattiDisponibili/' + ${id}}"> aggiungi piatto</a>
+    </div>
+</div>
+</body>
+</html>

@@ -19,7 +19,7 @@ public interface ChefRepository extends CrudRepository<Chef, Long> {
 
     @Modifying
     @Query( "update Chef c set c.nome = :nome, c.cognome= :cognome, c.nazionalita = :nazionalita where c.id = :id ")
-    int updateBuffet(@Param("nome") String nome, @Param("cognome") String cognome, @Param("nazionalita") String nazionalita, @Param("id") Long id);
+    int updateChef(@Param("nome") String nome, @Param("cognome") String cognome, @Param("nazionalita") String nazionalita, @Param("id") Long id);
 
 
 

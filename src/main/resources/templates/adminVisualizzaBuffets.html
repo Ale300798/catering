@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizza buffets</title>
+</head>
+<body>
+
+<div>
+    <div th:each="buffet : ${buffets}">
+    <a th:href="@{'/admin/modificaBuffetForm/' + ${buffet.id}}"> <span th:text="${buffet.nome}"></span></a>
+        <a th:href="@{'/admin/eliminaBuffet/' + ${buffet.id}}"> elimina </a>
+    </div>
+
+    <div>
+        <a th:href="@{/admin/aggiungiBuffet}"> aggiungi buffet </a>
+    </div>
+</div>
+
+<footer><a href="/"> Home </a></footer>
+
+</body>
+</html>
