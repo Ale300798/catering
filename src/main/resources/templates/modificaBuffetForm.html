@@ -5,7 +5,7 @@
     <title>modifica buffet form</title>
 </head>
 <body>
-<form th:action="@{'/admin/modifica/buffet/' + ${buffet.id}}" method="post">
+<form th:action="@{'/admin/modificaBuffet/' + ${buffet.id}}" method="post">
     <div>
         <div>
             <span> nome: </span>
@@ -19,10 +19,10 @@
 
         <div>
        <div>
-           <a th:href="@{'/admin/modificaChef/' + ${buffet.chef.id}}"><span> modifica Chef </span> </a>
+           <a th:href="@{'/admin/modificaChefForm/' + ${buffet.chef.id}}"><span> visualizza chef </span> </a>
        </div>
        <div>
-           <a th:href="@{'/admin/visualizzaPiatti/' + ${buffet.id}}"></a>
+           <a th:href="@{'/admin/visualizzaPiattiBuffet/' + ${buffet.id}}"> visualizza piatti del buffet</a>
        </div>
 
         </div>

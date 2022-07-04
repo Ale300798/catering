@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza ingredienti piatto</title>
+</head>
+<body>
+
+<div>
+    <ul>
+        <div th:each="ingrediente : ${ingredienti}">
+            <li>
+                <a th:href="@{'/admin/modificaIngredientePiattoForm/' + ${ingrediente.id}}" th:text="${ingrediente.nome}"></a>
+                <a th:href="@{'/admin/eliminaIngredienteDaPiatto/' + ${id} + '/' + ${ingrediente.id}}"> elimina dal piatto </a>
+            </li>
+        </div>
+    </ul>
+    <a th:href="@{'/admin/visualizzaIngredientiDisponibili/' + ${id}}"> aggiungi ingrediente al piatto </a>
+</div>
+
+</body>
+</html>

@@ -5,7 +5,7 @@
     <title>form per la modifica di un piatto</title>
 </head>
 <body>
-<form th:action="@{'/admin/modificaPiatto/' + ${piatto.id}}">
+<form th:action="@{'/admin/modificaPiatto/' + ${piatto.id}}" method="post">
     <div>
       <span> Nome : </span>
         <input type="text" th:value="${piatto.nome}" th:field="${piatto.nome}">
@@ -15,7 +15,7 @@
         <input type="text" th:value="${piatto.descrizione}" th:field="${piatto.descrizione}">
     </div>
     <div>
-        <a th:href="@{'/admin/modificaIngredienti' + ${piatto.id}}"> <span> Modifica ingredienti </span></a>
+        <a th:href="@{'/admin/visualizzaIngredientiPiatto/' + ${piatto.id}}"> <span> Modifica ingredienti </span></a>
     </div>
     <button type="submit"> Conferma modifiche</button>
 </form>

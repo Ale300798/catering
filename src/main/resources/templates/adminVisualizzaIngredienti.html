@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>visualizza ingredienti per modifica</title>
+</head>
+<body>
+<div>
+ <ul>
+  <div th:each="ingrediente : ${ingredienti}">
+
+    <li>
+        <a th:href="@{'/admin/modificaIngredienteForm/' + ${ingrediente.id}}" th:text="${ingrediente.nome}"></a>
+        <a th:href="@{'/admin/eliminaIngrediente/' + ${ingrediente.id}}"> elimina ingrediente</a>
+    </li>
+
+  </div>
+ </ul>
+    <a th:href="@{'/admin/inserisciIngredienteForm'}"> inserisci nuovo ingrediente </a>
+</div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.catering.repository;
 
 import com.catering.model.Buffet;
+import com.catering.model.Chef;
 import com.catering.model.Piatto;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +16,8 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long> {
 
     public Optional<Buffet> findById(Long id);
     public List<Buffet> findAll();
+
+    public Buffet findByNomeAndDescrizione(String nome, String descrizione);
 
     @Modifying
     @Query( "update Buffet b set b.nome = :nome, b.descrizione = :desc where b.id = :id ")
@@ -31,4 +34,25 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long> {
     @Modifying
     @Query(value = "delete from buffet_piatti bp where bp.buffet_id= :idB and bp.piatti_id = :idP", nativeQuery = true)
     void eliminaPiattoDaBuffet(@Param("idB") Long idB, @Param("idP") Long idp);
+
+
+    @Modifying
+    @Query(value = "delete from buffet_piatti bp where bp.buffet_id= :idB", nativeQuery = true)
+    void eliminaPiattiBuffet(@Param("idB") Long idB);
+
+    @Modifying
+    @Query(value = "delete from buffet_piatti bp where bp.buffet_id= :idB and bp.piatti_id = :idP", nativeQuery = true)
+    void eliminaPiattoBuffet(@Param("idB") Long idB, @Param("idP") Long idP);
+
+    @Modifying
+    @Query(value = "delete from chef_buffet_proposti cbp where cbp.buffet_proposti_id = :id", nativeQuery = true)
+    void eliminaBuffetDaChef(@Param("id") Long id);
+
+    @Modifying
+    @Query(value = "update Buffet b set b.chef = :chef where b.id = :id ")
+    int aggiungiChefABuffet(@Param("chef") Chef chef, @Param("id") Long id);
+
+    @Modifying
+    @Query(value = " insert into chef_buffet_proposti (chef_id, buffet_proposti_id) Values (:idC, :idB)", nativeQuery = true)
+    void aggiungiBuffetAChef(@Param("idC") Long idC, @Param("idB") Long idB);
 }

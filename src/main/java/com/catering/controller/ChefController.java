@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.catering.service.ChefService;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -43,29 +44,10 @@ public class ChefController {
         return "inserimentoChefForm.html";
     }
 
-
-
-    @GetMapping("/admin/modificaChefForm")
-    public String modifica(@ModelAttribute("buffet") Chef chef, Model model) {
-        model.addAttribute("chef", this.chefService.findChefById(chef.getId()));
-        return "modificaChefForm";
-    }
-
-    @PostMapping("/admin/modificaChef")
-    public String modificaChef(@Valid @ModelAttribute("chef") Chef chef, Model model, BindingResult bindingResults){
-
-        if(!bindingResults.hasErrors()) {
-            this.chefService.save(chef);
-            model.addAttribute("chef", chef);
-            return "chefModificatoVisualizza";
-        }
-        return "modificaChefForm";
-    }
-
-    @GetMapping("/visualizzaChefs")
+    @GetMapping("/admin/visualizzaChefs")
     public String visualizzaChefs(Model model) {
         model.addAttribute("chefs", this.chefService.chefs());
-        return "visualizzaChefs";
+        return "adminVisualizzaChefs";
     }
 
     @GetMapping("/visualizzaChef/{id}")
@@ -74,7 +56,38 @@ public class ChefController {
         List<Buffet> buffetProposti = chef.getBuffetProposti();
         model.addAttribute("chef", chef);
         model.addAttribute("buffetProposti", buffetProposti );
-        return "visualizzaChef";
+        return "userVisualizzaChef";
     }
+
+    @GetMapping("/admin/visualizzaBuffetProposti/{id}")
+    public String visualizzaBuffetProposti(Model model, @PathVariable("id") Long id) {
+
+        model.addAttribute("buffets", this.chefService.findChefById(id).getBuffetProposti());
+        return "adminVisualizzaBuffets";
+    }
+
+    @GetMapping("/admin/modificaChefForm/{id}")
+    public String modificaChefForm(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("chef", this.chefService.findChefById(id));
+        return "modificaChefForm";
+    }
+
+    @Transactional
+    @PostMapping("/admin/modificaChef/{id}")
+    public String modificaChef(Model model, @Valid @ModelAttribute("chef") Chef chef, @PathVariable("id") Long id, BindingResult bindingResult) {
+
+        this.chefVal.validate(chef, bindingResult);
+        if(!bindingResult.hasErrors()) {
+            this.chefService.updateChef(chef.getNome(), chef.getCognome(), chef.getNazionalita(), id);
+            model.addAttribute("chefs", this.chefService.chefs());
+
+            return "adminVisualizzaChefs";
+        }
+        return "modificaChefForm";
+    }
+
+
+
+
 
 }

@@ -20,7 +20,7 @@
             <input type="text" th:field="${chef.nazionalita}" th:value="${chef.nazionalita}">
         </div>
 
-        <a th:href="@{'/admin/visualizzaBuffetProposti' + ${chef.id}}"> Buffet proposti </a>
+        <a th:href="@{'/admin/visualizzaBuffetProposti/' + ${chef.id}}"> Buffet proposti </a>
 
         <button type="submit"> Conferma modifiche </button>
 

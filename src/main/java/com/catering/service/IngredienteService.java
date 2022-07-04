@@ -4,13 +4,8 @@ import com.catering.model.Ingrediente;
 import com.catering.repository.IngredienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.transaction.Transactional;
-import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -36,6 +31,18 @@ public class IngredienteService {
 
     public List<Ingrediente> ingredienti() {
         return this.ingredienteRepo.findAll();
+    }
+
+    public int aggiornaIngrediente(String nome, String origine, String descrizione, Long id) {
+        return this.ingredienteRepo.updateIngrediente(nome, origine, descrizione, id);
+    }
+
+    public void eliminaIngredienteDaiPiatti(Long id) {
+        this.ingredienteRepo.eliminaIngredienteDaiPiatti(id);
+    }
+
+    public void eliminaIngrediente(Long id) {
+        this.ingredienteRepo.deleteById(id);
     }
 
 }
