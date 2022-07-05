@@ -12,7 +12,7 @@ public interface IngredienteRepository extends CrudRepository<Ingrediente, Long>
 
     public List<Ingrediente> findAll();
 
-    public boolean existsById(Long id);
+    public boolean existsByNomeAndOrigine(String nome, String origine);
 
 
     @Modifying

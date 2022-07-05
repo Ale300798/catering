@@ -57,8 +57,8 @@ public class PiattoService {
         this.piattoRepo.inserisciIngredienteAlPiatto(idP, idI);
     }
 
-    public boolean esisteGia(Long id) {
-        return this.piattoRepo.existsById(id);
+    public boolean esisteGia(String nome) {
+        return this.piattoRepo.existsByNome(nome);
     }
 
 }

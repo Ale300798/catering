@@ -22,7 +22,7 @@ public class PiattoValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Piatto piatto = (Piatto) target;
-        if(this.piattoService.esisteGia(piatto.getId()))
+        if(this.piattoService.esisteGia(piatto.getNome()))
             errors.reject("piatto.duplicato");
 
     }

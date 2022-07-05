@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>form per la modifica di un piatto</title>
+    <link rel="stylesheet" th:href="@{/css/formModificaPiatto.css}">
 </head>
 <body>
-<form th:action="@{'/admin/modificaPiatto/' + ${piatto.id}}" method="post">
-    <div th:if="${#fields.hasGlobalErrors()}">
+<div id="contenitoreTitoloEForm">
+    <h2 id="titolo"> Modifica piatto </h2>
+    <div id="contenitoreForm">
+<form id="form" th:action="@{'/admin/modificaPiatto/' + ${piatto.id}}" method="post" th:object="${piatto}">
+    <div id="erroreGlobale" th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
     </div>
-    <div>
-      <span> Nome : </span>
+    <div id="contenitoreCampi">
+    <div class="contenitoreCampo">
+      <span class="campo"> Nome : </span>
         <input type="text" th:value="${piatto.nome}" th:field="${piatto.nome}">
     </div>
     <div th:if="${#fields.hasErrors('nome')}" th:errors="${piatto.nome}"></div>
-    <div>
-        <span> Descrizione : </span>
-        <input type="text" th:value="${piatto.descrizione}" th:field="${piatto.descrizione}">
+    <div class="contenitoreCampo">
+        <span class="campo"> Descrizione : </span>
+        <input  id="descrizione" type="text" th:value="${piatto.descrizione}" th:field="${piatto.descrizione}">
     </div>
-    <div>
+
+    </div>
+    <div id="contenitoreCampiAgg">
         <a th:href="@{'/admin/visualizzaIngredientiPiatto/' + ${piatto.id}}"> <span> Modifica ingredienti </span></a>
     </div>
-    <button type="submit"> Conferma modifiche</button>
+    <button class="bottone" type="submit"> Conferma modifiche</button>
 </form>
-
+    </div>
+</div>
 </body>
 </html>

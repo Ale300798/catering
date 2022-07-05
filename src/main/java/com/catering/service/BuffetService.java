@@ -24,8 +24,8 @@ public class BuffetService {
         return this.buffetRepo.findByNomeAndDescrizione(nome, desc);
     }
 
-    public boolean esisteGia(Long id) {
-        return this.buffetRepo.existsById(id);
+    public boolean esisteGia(String nome) {
+        return this.buffetRepo.existsByNome(nome);
     }
 
 

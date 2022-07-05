@@ -70,9 +70,13 @@ public class AuthenticationController {
         UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
         if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-            this.caricaHomeAdmin(model);
+            model.addAttribute("buffets", this.buffetService.tuttiBuffet());
+            model.addAttribute("chefs", this.chefService.chefs());
+            model.addAttribute("piatti", this.piattoService.piatti());
+            model.addAttribute("ingredienti", this.ingredienteService.ingredienti());
+            return "/admin/home";
         }
-        return "home";
+        return "/index";
     }
 
     @RequestMapping(value = { "/register" }, method = RequestMethod.POST)

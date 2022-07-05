@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>modifica ingrediente form</title>
+    <link rel="stylesheet" th:href="@{/css/formModificaIngrediente.css}">
 </head>
 <body>
-<form th:action="@{'/admin/modificaIngrediente/' + ${ingrediente.id}}" th:object="${ingrediente}" method="post">
-    <div th:if="${#fields.hasGlobalErrors()}">
+<div id="contenitoreTitoloEForm">
+    <h2 id="titolo"> Modifica ingrediente </h2>
+    <div id="contenitoreForm">
+<form id="form" th:action="@{'/admin/modificaIngrediente/' + ${ingrediente.id}}" th:object="${ingrediente}" method="post">
+    <div id="erroreGlobale" th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
     </div>
-    <div>
-        <span> Nome: </span>
+    <div id="contenitoreCampi">
+    <div class="contenitoreCampo">
+        <span class="campo"> Nome: </span>
         <input type="text" th:value="*{nome}" th:field="*{nome}">
     </div>
     <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
-    <div>
-        <span> Origine: </span>
+    <div class="contenitoreCampo">
+        <span class="campo"> Origine: </span>
         <input type="text" th:value="*{origine}" th:field="*{origine}">
     </div>
     <div th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></div>
-    <div>
-        <span> Descrizione: </span>
-        <input type="text" th:value="*{descrizione}" th:field="*{descrizione}">
+    <div class="contenitoreCampo">
+        <span class="campo"> Descrizione: </span>
+        <input id="descrizione" type="text" th:value="*{descrizione}" th:field="*{descrizione}">
     </div>
-
-    <button type="submit"> conferma modifiche </button>
+    </div>
+    <button class="bottone" type="submit"> conferma modifiche </button>
 
 </form>
+
+    </div>
+</div>
 
 </body>
 </html>

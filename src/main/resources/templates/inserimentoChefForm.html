@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>ChefFormInserimento</title>
+    <link rel="stylesheet" th:href="@{/css/formInserisciChef.css}" />
 </head>
 <body>
 
+<div id="contenitoreTitoloEForm">
+    <h2 id="titolo"> Inserisci i dati dello chef</h2>
+    <div id="contenitoreForm">
 <form th:action="@{/admin/inserimentoChef}" method="post" th:object="${chef}">
-    <div th:if="${#fields.hasGlobalErrors()}">
+    <div id="erroreGlobale" th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
     </div>
 
-    <div> nome: <input type="text" th:field="*{nome}" ></div>
+    <div id="contenitoreCampi">
+        <div class="contenitoreCampo">
+    <span class="campo"> nome: </span><input type="text" th:field="*{nome}" >
     <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
-    <div> cognome: <input type="text" th:field="*{cognome}" ></div>
+        </div>
+        <div class="contenitoreCampo">
+    <span class="campo"> cognome: </span><input type="text" th:field="*{cognome}" >
     <div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
-    <div> nazionalita: <input type="text" th:field="*{nazionalita}"></div>
+        </div>
+        <div class="contenitoreCampo">
+    <span class="campo"> nazionalita: </span><input type="text" th:field="*{nazionalita}">
     <div th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></div>
-    <div> Manca la parte sui buffet </div>
-    <div> <button type="submit"> conferma </button> </div>
+        </div>
+    <div> <button class="bottone" type="submit"> conferma </button> </div>
+    </div>
 </form>
+    </div>
+
+
+
+</div>
 </body>
 </html>

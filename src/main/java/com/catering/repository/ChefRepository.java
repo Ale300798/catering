@@ -11,7 +11,7 @@ import java.util.List;
 public interface ChefRepository extends CrudRepository<Chef, Long> {
 
 
-    public boolean existsById(Long id);
+    public boolean existsByNomeAndCognomeAndNazionalita(String nome, String cognome, String nazionalita);
 
 
     public List<Chef> findAll();

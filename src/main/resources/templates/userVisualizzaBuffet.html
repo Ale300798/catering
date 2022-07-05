@@ -3,62 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/userVisualizzaBuffet.css}">
 </head>
 <body>
 
-<div>
-    <div>
-        <span> nome: </span>
+<div id="contenitoreForm">
+    <div id="contenitoreSezione">
+        <div id="contenitoreCampi"></div>
+    <div class="contenitoreCampo">
+        <span class="campo"> nome: </span>
         <span th:text="${buffet.nome}"></span>
     </div>
 
-    <div>
-        <span> descrizione: </span>
+    <div class="contenitoreCampo">
+        <span class="campo"> descrizione: </span>
         <span th:text="${buffet.descrizione}"> </span>
     </div>
 
-    <div>
-        <div>
-            <span> nome chef: </span>
+    <div id="sezioneChef">
+        <div class="contenitoreCampo">
+            <span class="campo"> nome chef: </span>
             <span th:text="${buffet.chef.nome}"> </span>
         </div>
 
-        <div>
-            <span> cognome chef: </span>
+        <div class="contenitoreCampo">
+            <span class="campo"> cognome chef: </span>
             <span th:text="${buffet.chef.cognome}"> </span>
         </div>
 
-        <div>
-            <span> nazionalita chef: </span>
+        <div class="contenitoreCampo">
+            <span class="campo"> nazionalita chef: </span>
             <span  th:text="${buffet.chef.nazionalita}"> </span>
         </div>
     </div>
 
-    <div>
+    <div id="sezionePiatto">
         <div th:each="piatto : ${buffet.piatti}">
-            <div>
-                <span> nome: </span>
+            <div class="contenitoreCampo">
+                <span class="campo"> nome: </span>
                 <span th:text="${piatto.nome}"> </span>
             </div>
-            <div>
-                <span> descrizione: </span>
+            <div class="contenitoreCampo">
+                <span class="campo"> descrizione: </span>
                 <span th:text="${piatto.descrizione}"> </span>
             </div>
-            <div th:each="ingrediente : ${piatto.ingredienti}">
-                <div>
-                    <span> nome: </span>
+            <div id="sezioneIngredienti">
+            <th:each="ingrediente : ${piatto.ingredienti}">
+                <div class="contenitoreCampo">
+                    <span class="campo"> nome: </span>
                     <span th:text="${ingrediente.nome}"> </span>
                 </div>
-                <div>
-                    <span> origine: </span>
+                <div class="contenitoreCampo">
+                    <span class="campo"> origine: </span>
                     <span th:text="${ingrediente.origine}"> </span>
                 </div>
-                <div>
-                    <span> descrizione: </span>
+                <div class="contenitoreCampo">
+                    <span class="campo"> descrizione: </span>
                     <span th:text="${ingrediente.descrizione}"> </span>
                 </div>
             </div>
+            </div>
         </div>
+    </div>
     </div>
 
 

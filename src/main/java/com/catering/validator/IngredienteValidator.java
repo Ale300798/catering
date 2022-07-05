@@ -21,7 +21,7 @@ public class IngredienteValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Ingrediente ingrediente = (Ingrediente) target;
-        if(this.ingredienteService.esisteGia(ingrediente.getId())) {
+        if(this.ingredienteService.esisteGia(ingrediente.getNome(), ingrediente.getOrigine())) {
             errors.reject("ingrediente.duplicato");
         }
 
