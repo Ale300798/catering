@@ -1,0 +1,86 @@
+#contenitoreTitoloEForm {
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+
+#contenitoreForm {
+    background-color: bisque;
+    height:300px;
+    width:400px;
+    position: absolute;
+    margin-top:10%;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+
+a {
+    color:black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color:blue;
+    cursor: pointer;
+}
+
+
+#contenitoreCampi {
+    display: flex;
+    flex-direction: column;
+}
+
+#titolo {
+    margin-top:7%;
+    margin-right: 15%;
+}
+
+#erroreGlobale {
+    margin-left: 20px;
+    font-size: 20px;
+    color:red;
+    height:10%;
+}
+
+#contenitoreCampi{
+    height:100%;
+    width:100%;
+}
+.campo{
+    width:110px;
+    margin-right:20px;
+}
+
+.contenitoreCampo {
+    width:100%;
+    display: flex;
+    margin-bottom:15px;
+}
+#descrizione {
+    height:30px;
+}
+
+
+#erroreGlobale {
+    margin-left: 20px;
+    font-size: 20px;
+    color:red;
+    height:10%;
+}
+
+#form {
+    margin-left: 10%;
+    font-size:20px;
+    width:100%;
+}
+
+.bottone {
+    margin-top:5%;
+    margin-left:50%;
+    border-style: solid;
+    border-color:black;
+    border-radius: 10px;
+    height:30px;
+}

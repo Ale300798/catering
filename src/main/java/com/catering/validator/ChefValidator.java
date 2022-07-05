@@ -23,7 +23,7 @@ public class ChefValidator implements Validator {
     public void validate(Object target, Errors errors) {
 
         Chef chef = (Chef) target;
-        if(chefService.alreadyExists(chef.getId())) {
+        if(chefService.alreadyExists(chef.getNome(), chef.getCognome(), chef.getNazionalita())) {
             errors.reject("chef.duplicato");
         }
 

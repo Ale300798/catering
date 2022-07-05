@@ -26,8 +26,8 @@ public class ChefService {
         this.chefRepo.deleteById(id);
     }
 
-    public boolean alreadyExists(Long id) {
-        return this.chefRepo.existsById(id);
+    public boolean alreadyExists(String nome, String cognome, String nazionalita) {
+        return this.chefRepo.existsByNomeAndCognomeAndNazionalita(nome, cognome, nazionalita);
     }
 
     public Chef findChefById(Long id) {

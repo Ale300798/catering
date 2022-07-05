@@ -24,8 +24,8 @@ public class IngredienteService {
         return this.ingredienteRepo.findById(id).get();
     }
 
-    public boolean esisteGia(Long id){
-        return this.ingredienteRepo.existsById(id);
+    public boolean esisteGia(String nome, String origine){
+        return this.ingredienteRepo.existsByNomeAndOrigine(nome, origine);
     }
 
     @Transactional

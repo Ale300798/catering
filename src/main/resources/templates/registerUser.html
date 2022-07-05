@@ -3,32 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>form di registrazione</title>
+    <link rel="stylesheet" href="/static/css/registrazioneCss.css">
 </head>
 <body>
-<form th:action="@{/register}" method="post">
-    <div>
-        <span> nome: </span>
+<div id="contenitoreTitoloEForm">
+    <h2 id="titolo"> Registrati</h2>
+    <div id="contenitoreForm">
+<form id="form" th:action="@{/register}" method="post">
+    <div id="contenitoreCampi">
+    <div class="contenitoreCampo">
+        <span class="campo"> nome: </span>
         <span> <input type="text" required th:field="${user.nome}"> </span>
         <span th:if="${#fields.hasErrors('user.nome')}" th:errors="${user.nome}" th:style="'color:red'"></span>
     </div>
-    <div>
-        <span> cognome: </span>
+    <div class="contenitoreCampo">
+        <span class="campo"> cognome: </span>
         <span> <input type="text" required th:field="${user.cognome}"> </span>
         <span th:if="${#fields.hasErrors('user.cognome')}" th:errors="${user.cognome}" th:style="'color:red'"></span>
     </div>
-    <div>
-        <span> username: </span>
+    <div class="contenitoreCampo">
+        <span class="campo"> username: </span>
         <span> <input type="text" required th:field="${credentials.username}"> </span>
         <span th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}" th:style="'color:red'"></span>
     </div>
-    <div>
-        <span> password: </span>
+    <div class="contenitoreCampo">
+        <span class="campo"> password: </span>
         <span> <input type="password" required th:field="${credentials.password}"> </span>
         <span th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}" th:style="'color:red'"></span>
     </div>
-    <button type="submit"> conferma</button>
+
+    </div>
+    <button class="bottone" type="submit"> conferma</button>
+
 
 </form>
+    </div>
 
+</div>
 </body>
 </html>

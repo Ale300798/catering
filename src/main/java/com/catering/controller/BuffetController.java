@@ -52,6 +52,7 @@ public class BuffetController {
             this.buffetService.updateBuffet(buffet.getNome(), buffet.getDescrizione(), id);
             return this.authenticationController.caricaHomeAdmin(model);
         }
+        model.addAttribute("buffet", this.buffetService.findBuffetById(id));
         return "modificaBuffetForm";
     }
 

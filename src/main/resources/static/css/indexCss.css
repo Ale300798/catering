@@ -29,6 +29,26 @@
     margin-right:2%;
 }
 
+#logout {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    font-size: 20px;
+    margin-right:2%;
+}
+
+a {
+    color:black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color:blue;
+    cursor: pointer;
+}
+
+
 #navBar {
     border-top: black;
     border-top-style: solid;
@@ -113,15 +133,14 @@
     margin-top: 7%;
     margin-left: 10%;
     display: flex;
-    color:black;
-    font-family: "Brush Script MT";
-    font-size: 30px;
+    flex-direction: row;
 }
 
-#divImgCatPesce {
-    height: 100%;
-    width: 300px;
+.divImg1 {
+    height:200px;
+    width: 20%;
 }
+
 
 #imgCatPesce {
     height: 100%;

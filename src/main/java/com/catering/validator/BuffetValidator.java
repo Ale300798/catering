@@ -22,7 +22,7 @@ public class BuffetValidator implements Validator {
     public void validate(Object target, Errors errors) {
 
         Buffet buffet =(Buffet) target;
-        if(this.buffetRepository.existsById(buffet.getId())) {
+        if(this.buffetRepository.existsByNome(buffet.getNome())) {
             errors.reject("buffet.duplicato");
         }
 

@@ -6,7 +6,8 @@
 </head>
 <body>
 
-<div>
+<div id="contenitoreForm">
+    <div>
     <ul>
         <div th:each="ingrediente : ${ingredienti}">
             <li>
@@ -15,6 +16,7 @@
             </li>
         </div>
     </ul>
+    </div>
     <a th:href="@{'/admin/visualizzaIngredientiDisponibili/' + ${id}}"> aggiungi ingrediente al piatto </a>
 </div>
 
