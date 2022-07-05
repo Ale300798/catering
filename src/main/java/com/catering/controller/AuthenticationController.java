@@ -2,7 +2,7 @@ package com.catering.controller;
 
 import com.catering.model.Credentials;
 import com.catering.model.User;
-import com.catering.service.CredentialsService;
+import com.catering.service.*;
 import com.catering.validator.CredentialsValidator;
 import com.catering.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +28,16 @@ public class AuthenticationController {
     @Autowired
     private CredentialsValidator credentialsValidator;
 
+    @Autowired
+    private BuffetService buffetService;
+    @Autowired
+    private ChefService chefService;
+    @Autowired
+    private PiattoService piattoService;
+    @Autowired
+    private IngredienteService ingredienteService;
+
+
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String showRegisterForm (Model model) {
         model.addAttribute("user", new User());
@@ -51,7 +61,12 @@ public class AuthenticationController {
         UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
         if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-            return "admin/home";
+
+            model.addAttribute("buffets", this.buffetService.tuttiBuffet());
+            model.addAttribute("chefs", this.chefService.chefs());
+            model.addAttribute("piatti", this.piattoService.piatti());
+            model.addAttribute("ingredienti", this.ingredienteService.ingredienti());
+            return "/admin/home";
         }
         return "home";
     }

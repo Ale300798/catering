@@ -107,6 +107,7 @@ public class BuffetController {
     public String eliminaPiattoDaBuffet(Model model, @PathVariable("idB") Long idB, @PathVariable("idP") Long idP) {
         this.buffetService.eliminaPiattoBuffet(idB, idP);
         model.addAttribute("piatti", this.buffetService.findBuffetById(idB).getPiatti());
+        model.addAttribute("id", idB);
         return "adminVisualizzaPiattiBuffet";
     }
 

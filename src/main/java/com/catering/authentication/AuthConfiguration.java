@@ -36,11 +36,12 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+       http.requestCache().disable();
         http
                 // authorization paragraph: qui definiamo chi può accedere a cosa
                 .authorizeRequests()
                 // chiunque (autenticato o no) può accedere alle pagine index, login, register, ai css e alle immagini
-                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/js/**", "/css/**", "/images/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/js/**", "/css/**", "/images/**", "/default").permitAll()
                 // chiunque (autenticato o no) può mandare richieste POST al punto di accesso per login e register
                 .antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
                 // solo gli utenti autenticati con ruolo ADMIN possono accedere a risorse con path /admin/**
@@ -49,14 +50,17 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // tutti gli utenti autenticati possono accere alle pagine rimanenti
                 .anyRequest().authenticated()
 
+
                 // login paragraph: qui definiamo come è gestita l'autenticazione
                 // usiamo il protocollo formlogin
                 .and().formLogin()
                 // la pagina di login si trova a /login
                 // NOTA: Spring gestisce il post di login automaticamente
+
                 .loginPage("/login")
                 // se il login ha successo, si viene rediretti al path /default
                 .defaultSuccessUrl("/default")
+
 
                 // logout paragraph: qui definiamo il logout
                 .and().logout()
@@ -66,6 +70,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/index")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
+
     }
 
     /**

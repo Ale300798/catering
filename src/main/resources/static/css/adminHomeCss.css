@@ -1,0 +1,110 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+#divInizioPagina {
+    background-color: white;
+    height:60px;
+}
+#paragrafoInizioPagina {
+    font-size: 40px;
+    margin-left: 35%;
+    background-color: white;
+}
+
+
+#navBar {
+    border-top: black;
+    border-top-style: solid;
+    border-bottom: black;
+    border-bottom-style: solid;
+    height: 40px;
+    width: 100%;
+    position: sticky;
+
+}
+
+#vociContainer {
+    list-style: none;
+    line-height: 30px;
+    display: flex;
+}
+
+#divlistaNavBar {
+    height: 100%;
+}
+.voci {
+    font-size: 20px;
+    color: black;
+    margin-left: 16%;
+    border-bottom: black;
+    border-bottom-style: solid;
+}
+
+.sezioni {
+
+
+}
+
+#sezioneBuffet {
+    border-style: solid;
+    border-color: black;
+    background-color: #e8e6e6;
+}
+
+#sezioneChef {
+    border-style: solid;
+    border-color: black;
+    background-color: #cccccc;
+
+}
+
+#sezionePiatti {
+    border-style: solid;
+    border-color: black;
+    background-color: #8d8c8c;
+}
+
+
+#sezioneIngredienti {
+    border-style: solid;
+    border-color: black;
+    background-color: #6c6c6c;
+}
+.divPreParagrafo {
+    height: 7%;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color:black;
+}
+
+.ScrittaPreParagrafo {
+    margin-left: 45%;
+    font-size: 50px;
+    color:black;
+}
+
+
+.singoloElemento {
+    display: flex;
+    justify-content: space-between;
+    height:70px;
+    border-style: solid;
+    border-color: black;
+}
+
+.bottoni {
+    border-style:groove;
+    height: 70%;
+    margin-top: 10%;
+}
+
+.divcampo {
+    height: 100%;
+    width: 25%;
+    font-size: 25px;
+    color:black;
+
+}
+
