@@ -10,7 +10,7 @@
     <ul>
         <div th:each="ingrediente : ${ingredienti}">
             <li>
-                <a th:href="@{'/admin/modificaIngredientePiattoForm/' + ${ingrediente.id}}" th:text="${ingrediente.nome}"></a>
+                <a th:href="@{'/admin/modificaIngredienteForm/' + ${ingrediente.id}}" th:text="${ingrediente.nome}"></a>
                 <a th:href="@{'/admin/eliminaIngredienteDaPiatto/' + ${id} + '/' + ${ingrediente.id}}"> elimina dal piatto </a>
             </li>
         </div>

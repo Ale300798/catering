@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home admin</title>
+
+    <link rel="stylesheet" th:href="@{/css/adminHomeCss.css}" />
+</head>
+<body>
+
+<div id="divInizioPagina">
+    <p id="paragrafoInizioPagina"> Pagina di amministrazione </p>
+</div>
+
+
+
+
+<nav id="navBar">
+    <div id="divlistaNavBar">
+        <ul id="vociContainer">
+            <li class ="voci" ><a href="#sezioneBuffet">  Buffet </a></li>
+            <li class ="voci"><a href="#sezioneChef"> Chef </a></li>
+            <li class ="voci"><a href="#sezionePiatti"> Piatti </a></li>
+            <li class ="voci" href=""><a href="#sezioneIngredienti"> Ingredienti </a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="sezioni">
+
+    <!--sezione Buffet-->
+    <div id="sezioneBuffet">
+        <div class="divPreParagrafo">
+        <p class="ScrittaPreParagrafo"> Buffet </p>
+        </div>
+    <div th:each="buffet : ${buffets}">
+    <div class="contenitoreSezione">
+        <div class="singoloElemento">
+
+            <div class="divcampo">
+                <span> Nome: </span>
+                <span th:text="${buffet.nome}"></span>
+            </div>
+
+            <div class="divcampo">
+                <span> Descrizione: </span>
+                <span  th:text="${buffet.descrizione}" ></span>
+            </div>
+
+            <div class="divcampo">
+                <span> Chef: </span>
+                <span  th:text="${buffet.chef.nome}"></span>
+            </div>
+            <div class="divBottoni">
+            <button class="bottoni"> Modifica</button>
+            <button class="bottoni"> Elimina</button>
+            </div>
+        </div>
+     </div>
+    </div>
+    </div>
+    <!--sezione Chef-->
+
+    <div id="sezioneChef">
+    <div class="divPreParagrafo">
+        <p class="ScrittaPreParagrafo"> Chef </p>
+    </div>
+
+        <div th:each="chef : ${chefs}">
+            <div class="contenitoreSezione">
+                <div class="singoloElemento">
+
+                    <div class="divcampo">
+                        <span> Nome: </span>
+                        <span th:text="${chef.nome}"></span>
+                    </div>
+
+                    <div class="divcampo">
+                        <span> Cognome: </span>
+                <span th:text="${chef.cognome}"></span>
+            </div>
+
+            <div class="divcampo">
+                <span> Nazionalita: </span>
+                <span th:text="${chef.nazionalita}"></span>
+            </div>
+            <div class="divBottoni">
+                <button class="bottoni"> Modifica</button>
+                <button class="bottoni"> Elimina</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!--sezione Piatti-->
+    <div id="sezionePiatti">
+        <div class="divPreParagrafo">
+            <p class="ScrittaPreParagrafo"> Piatti </p>
+        </div>
+
+        <div th:each="piatto : ${piatti}">
+
+        <div class="contenitoreSezione">
+            <div class="singoloElemento">
+
+                <div class="divcampo">
+                    <span> Nome: </span>
+                    <span th:text="${piatto.nome}"></span>
+                </div>
+
+                <div class="divcampo">
+                    <span> Descrizione: </span>
+                    <span th:text="${piatto.descrizione}"></span>
+                </div>
+                <div class="divBottoni">
+                    <button class="bottoni"> Modifica</button>
+                    <button class="bottoni"> Elimina</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+   <!--sezione Ingredienti-->
+
+    <div id="sezioneIngredienti">
+        <div class="divPreParagrafo">
+            <p class="ScrittaPreParagrafo"> Ingredienti </p>
+        </div>
+
+        <div th:each="ingrediente : ${ingredienti}">
+        <div class="contenitoreSezione">
+            <div class="singoloElemento">
+
+                <div class="divcampo">
+                    <span> Nome: </span>
+                    <span th:text="${ingrediente.nome}"></span>
+                </div>
+
+                <div class="divcampo">
+                    <span> Origine: </span>
+                    <span th:text="${ingrediente.origine}"></span>
+                </div>
+
+                <div class="divcampo">
+                    <span> Descrizione: </span>
+                    <span th:text="${ingrediente.descrizione}"></span>
+                </div>
+                <div class="divBottoni">
+                    <button class="bottoni"> Modifica</button>
+                    <button class="bottoni"> Elimina</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+</body>
+</html>
