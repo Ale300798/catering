@@ -12,6 +12,8 @@ public interface IngredienteRepository extends CrudRepository<Ingrediente, Long>
 
     public List<Ingrediente> findAll();
 
+    public boolean existsById(Long id);
+
 
     @Modifying
     @Query( "update Ingrediente i set i.nome = :nome, i.origine= :origine, i.descrizione = :desc where i.id = :id ")

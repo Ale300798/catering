@@ -17,6 +17,8 @@ public class IngredienteController {
 
     @Autowired
     private IngredienteService ingredienteService;
+    @Autowired
+    private AuthenticationController authenticationController;
 
     @Autowired
     private IngredienteValidator ingredienteValidator;
@@ -59,8 +61,7 @@ public class IngredienteController {
         this.ingredienteValidator.validate(ingrediente, bindingResult);
         if(!bindingResult.hasErrors()) {
             this.ingredienteService.aggiornaIngrediente(ingrediente.getNome(), ingrediente.getOrigine(), ingrediente.getDescrizione(), id);
-            model.addAttribute("ingredienti", this.ingredienteService.ingredienti());
-            return "adminVisualizzaIngredienti";
+            return this.authenticationController.caricaHomeAdmin(model);
         }
         return "modificaIngredienteForm";
     }
@@ -71,9 +72,7 @@ public class IngredienteController {
     public String eliminaIngrediente(Model model, @PathVariable("id") Long id) {
         this.ingredienteService.eliminaIngredienteDaiPiatti(id);
         this.ingredienteService.eliminaIngrediente(id);
-
-        model.addAttribute("ingredienti", this.ingredienteService.ingredienti());
-        return "adminVisualizzaIngredienti";
+        return this.authenticationController.caricaHomeAdmin(model);
     }
 
 

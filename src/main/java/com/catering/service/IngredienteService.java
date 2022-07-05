@@ -24,6 +24,10 @@ public class IngredienteService {
         return this.ingredienteRepo.findById(id).get();
     }
 
+    public boolean esisteGia(Long id){
+        return this.ingredienteRepo.existsById(id);
+    }
+
     @Transactional
     public void deleteIngredienteById(Long id) {
         this.ingredienteRepo.deleteById(id);

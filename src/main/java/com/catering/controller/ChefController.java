@@ -26,6 +26,8 @@ public class ChefController {
     private ChefService chefService;
     @Autowired
     private ChefValidator chefVal;
+    @Autowired
+    private AuthenticationController authenticationController;
     @PostMapping("/admin/inserimentoChef")
     public String saveNewChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResults, Model model) {
        chefVal.validate(chef, bindingResults);
@@ -79,11 +81,18 @@ public class ChefController {
         this.chefVal.validate(chef, bindingResult);
         if(!bindingResult.hasErrors()) {
             this.chefService.updateChef(chef.getNome(), chef.getCognome(), chef.getNazionalita(), id);
-            model.addAttribute("chefs", this.chefService.chefs());
-
-            return "adminVisualizzaChefs";
+            return this.authenticationController.caricaHomeAdmin(model);
         }
         return "modificaChefForm";
+    }
+
+    @Transactional
+    @GetMapping("/admin/eliminaChef/{id}")
+    public String eliminaChef(Model model, @PathVariable("id") Long id) {
+        this.chefService.eliminaBuffetDelloChef(id);
+        this.chefService.eliminaBuffetDelloChefInBuffet(id);
+        this.chefService.eliminaChef(id);
+        return this.authenticationController.caricaHomeAdmin(model);
     }
 
 

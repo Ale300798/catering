@@ -1,15 +1,25 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>home admin</title>
 
     <link rel="stylesheet" th:href="@{/css/adminHomeCss.css}" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
 
 <div id="divInizioPagina">
     <p id="paragrafoInizioPagina"> Pagina di amministrazione </p>
+    <div id="logout" sec:authorize="isAuthenticated()">
+        <div>
+        <i class="uil uil-user modIconaUtente"></i>
+        </div>
+        <a class="logoutAnc ancora" th:href="@{/logout}">
+            logout
+        </a>
+    </div>
 </div>
 
 
@@ -52,8 +62,8 @@
                 <span  th:text="${buffet.chef.nome}"></span>
             </div>
             <div class="divBottoni">
-            <button class="bottoni"> Modifica</button>
-            <button class="bottoni"> Elimina</button>
+                <a th:href="@{'/admin/modificaBuffetForm/' + ${buffet.id}}"><button class="bottoni" type="submit" > Modifica</button> </a>
+                <a th:href="@{'/admin/eliminaBuffet/' + ${buffet.id}}"> <button class="bottoni" > Elimina</button></a>
             </div>
         </div>
      </div>
@@ -85,8 +95,8 @@
                 <span th:text="${chef.nazionalita}"></span>
             </div>
             <div class="divBottoni">
-                <button class="bottoni"> Modifica</button>
-                <button class="bottoni"> Elimina</button>
+                <a th:href="@{'/admin/modificaChefForm/' + ${chef.id}}"><button class="bottoni" type="submit" > Modifica</button> </a>
+                <a th:href="@{'/admin/eliminaChef/' + ${chef.id}}"> <button class="bottoni" > Elimina</button></a>
             </div>
         </div>
     </div>
@@ -114,8 +124,8 @@
                     <span th:text="${piatto.descrizione}"></span>
                 </div>
                 <div class="divBottoni">
-                    <button class="bottoni"> Modifica</button>
-                    <button class="bottoni"> Elimina</button>
+                    <a th:href="@{'/admin/modificaPiattoForm/' + ${piatto.id}}"><button class="bottoni" type="submit" > Modifica</button> </a>
+                    <a th:href="@{'/admin/eliminaPiatto/' + ${piatto.id}}"> <button class="bottoni" > Elimina</button></a>
                 </div>
             </div>
         </div>
@@ -147,8 +157,8 @@
                     <span th:text="${ingrediente.descrizione}"></span>
                 </div>
                 <div class="divBottoni">
-                    <button class="bottoni"> Modifica</button>
-                    <button class="bottoni"> Elimina</button>
+                    <a th:href="@{'/admin/modificaIngredienteForm/' + ${ingrediente.id}}"><button class="bottoni" type="submit" > Modifica</button> </a>
+                    <a th:href="@{'/admin/eliminaIngrediente/' + ${ingrediente.id}}"> <button class="bottoni" > Elimina</button></a>
                 </div>
             </div>
         </div>

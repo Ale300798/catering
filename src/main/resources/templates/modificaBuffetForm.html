@@ -6,11 +6,15 @@
 </head>
 <body>
 <form th:action="@{'/admin/modificaBuffet/' + ${buffet.id}}" method="post">
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+    </div>
     <div>
         <div>
             <span> nome: </span>
             <input type="text" name="nome" th:field="${buffet.nome}" th:value="${buffet.nome}">
         </div>
+        <div th:if="${#fields.hasErrors('nome')}" th:errors="${buffet.nome}"></div>
 
         <div>
             <span> descrizione: </span>

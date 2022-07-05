@@ -28,6 +28,9 @@ public class PiattoController {
     private PiattoService piattoService;
 
     @Autowired
+    private AuthenticationController authenticationController;
+
+    @Autowired
     private PiattoValidator piattoValidator;
 
     @Autowired
@@ -68,8 +71,7 @@ public class PiattoController {
         this.piattoValidator.validate(piatto, bindingResult);
         if(!bindingResult.hasErrors()) {
             this.piattoService.updatePiatto(piatto.getNome(), piatto.getDescrizione(), id);
-            model.addAttribute("piatti", this.piattoService.piatti());
-            return "adminVisualizzaPiatti";
+            return this.authenticationController.caricaHomeAdmin(model);
         }
         return "modificaPiattoForm";
     }
@@ -86,8 +88,7 @@ public class PiattoController {
         this.piattoService.eliminaPiattoDaBuffet(id);
         this.piattoService.eliminaPiattoDaIngredienti(id);
         this.piattoService.deletePiattoById(id);
-        model.addAttribute("piatti", this.piattoService.piatti());
-        return "adminVisualizzaPiatti";
+        return this.authenticationController.caricaHomeAdmin(model);
     }
 
     @Transactional
@@ -129,8 +130,4 @@ public class PiattoController {
         model.addAttribute("id", idP);
         return "adminVisualizzaIngredientiPiatto";
     }
-
-
-
-
 }

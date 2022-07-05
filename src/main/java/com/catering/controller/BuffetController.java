@@ -32,6 +32,8 @@ public class BuffetController {
     private ChefService chefService;
     @Autowired
     private PiattoService piattoService;
+    @Autowired
+    private AuthenticationController authenticationController;
 
     @GetMapping("/admin/modificaBuffetForm/{id}")
     public String modifica(Model model, @PathVariable("id") Long id) {
@@ -48,8 +50,7 @@ public class BuffetController {
 
         if(!bindingResults.hasErrors()) {
             this.buffetService.updateBuffet(buffet.getNome(), buffet.getDescrizione(), id);
-            model.addAttribute("buffets", this.buffetService.tuttiBuffet());
-            return "adminVisualizzaBuffets";
+            return this.authenticationController.caricaHomeAdmin(model);
         }
         return "modificaBuffetForm";
     }
@@ -117,8 +118,7 @@ public class BuffetController {
         this.buffetService.eliminaPiattiBuffet(id);
         this.buffetService.eliminaBuffetDaChef(id);
         this.buffetService.eliminaBuffet(id);
-        model.addAttribute("buffets", this.buffetService.tuttiBuffet());
-        return "adminVisualizzaBuffets";
+        return this.authenticationController.caricaHomeAdmin(model);
     }
 
     @GetMapping("/admin/aggiungiBuffet")
@@ -150,10 +150,5 @@ public class BuffetController {
         model.addAttribute("buffet", this.buffetService.findBuffetById(idB));
         return "modificaBuffetForm";
     }
-
-
-
-
-
 
 }

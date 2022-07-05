@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+
+    <link rel="stylesheet" th:href="@{/css/loginCss.css}" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
 <div class="forms">
-    <div class="form login">
-        <span class="title">Login </span>
+
+    <span class="title">Login </span>
+    <div id="formLogin">
         </a>
 
 
-        <form th:action="@{/login}" method="post" >
+        <form id="form"th:action="@{/login}" method="post" >
 
-            <div class="input-field">
-                <input name="username" type="text" placeholder="Enter your email" required>
+            <span> Username: </span>
+            <div>
+                <input class="input-field-username"name="username" type="text" placeholder="Username" required>
             </div>
-            <div class="input-field">
-                <input name="password" type="password" class="password input" placeholder="Enter your password" required>
+
+
+            <span> Password: </span>
+            <div >
+                <input class="input-field-psw" name="password" type="password" placeholder="Password" required>
+                <i class="uil uil-eye-slash showHidePw"></i>
             </div>
 
 
@@ -28,5 +37,7 @@
         </form>
     </div>
 </div>
+
+<script type="text/javascript" th:src="@{/js/loginJs.js}"></script>
 </body>
 </html>

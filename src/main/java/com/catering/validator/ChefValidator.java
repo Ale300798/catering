@@ -22,7 +22,8 @@ public class ChefValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
 
-        if(chefService.alreadyExists((Chef) target)) {
+        Chef chef = (Chef) target;
+        if(chefService.alreadyExists(chef.getId())) {
             errors.reject("chef.duplicato");
         }
 
