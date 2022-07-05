@@ -55,18 +55,22 @@ public class AuthenticationController {
         return "index";
     }
 
+    public String caricaHomeAdmin(Model model) {
+
+        model.addAttribute("buffets", this.buffetService.tuttiBuffet());
+        model.addAttribute("chefs", this.chefService.chefs());
+        model.addAttribute("piatti", this.piattoService.piatti());
+        model.addAttribute("ingredienti", this.ingredienteService.ingredienti());
+        return "/admin/home";
+    }
+
     @RequestMapping(value = "/default", method = RequestMethod.GET)
     public String defaultAfterLogin(Model model) {
 
         UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
         if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-
-            model.addAttribute("buffets", this.buffetService.tuttiBuffet());
-            model.addAttribute("chefs", this.chefService.chefs());
-            model.addAttribute("piatti", this.piattoService.piatti());
-            model.addAttribute("ingredienti", this.ingredienteService.ingredienti());
-            return "/admin/home";
+            this.caricaHomeAdmin(model);
         }
         return "home";
     }

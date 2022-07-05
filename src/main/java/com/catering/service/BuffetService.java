@@ -24,6 +24,10 @@ public class BuffetService {
         return this.buffetRepo.findByNomeAndDescrizione(nome, desc);
     }
 
+    public boolean esisteGia(Long id) {
+        return this.buffetRepo.existsById(id);
+    }
+
 
     @Transactional
     public void saveBuffet(Buffet buffet) {

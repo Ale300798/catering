@@ -6,14 +6,19 @@
 </head>
 <body>
 <form th:action="@{/admin/inserisciIngrediente}" th:object="${ingrediente}" method="post">
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+    </div>
     <div>
         <span> Nome: </span>
         <input type="text" th:field="*{nome}">
     </div>
+    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
     <div>
         <span> Origine: </span>
         <input type="text"  th:field="*{origine}">
     </div>
+    <div th:if="${#fields.hasErrors('origine')}" th:errors="*{origine}"></div>
     <div>
         <span> Descrizione: </span>
         <input type="text"  th:field="*{descrizione}">

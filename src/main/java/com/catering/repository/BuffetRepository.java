@@ -19,6 +19,8 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long> {
 
     public Buffet findByNomeAndDescrizione(String nome, String descrizione);
 
+    public boolean existsById(Long id);
+
     @Modifying
     @Query( "update Buffet b set b.nome = :nome, b.descrizione = :desc where b.id = :id ")
     int updateBuffet(@Param("nome") String nome, @Param("desc") String desc, @Param("id") Long id);

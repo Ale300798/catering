@@ -26,8 +26,8 @@ public class ChefService {
         this.chefRepo.deleteById(id);
     }
 
-    public boolean alreadyExists(Chef chef) {
-        return this.chefRepo.existsByNomeAndCognomeAndNazionalita(chef.getNome(), chef.getCognome(), chef.getNazionalita());
+    public boolean alreadyExists(Long id) {
+        return this.chefRepo.existsById(id);
     }
 
     public Chef findChefById(Long id) {
@@ -40,5 +40,17 @@ public class ChefService {
 
     public int updateChef(String nome, String cognome, String nazionalita, Long id) {
         return this.chefRepo.updateChef(nome, cognome, nazionalita, id);
+    }
+
+    public void eliminaBuffetDelloChef(Long id) {
+        this.chefRepo.eliminaBuffetDelloChef(id);
+    }
+
+    public void eliminaBuffetDelloChefInBuffet(Long id) {
+        this.chefRepo.eliminaBuffetDelloChefInBuffet(id);
+    }
+
+    public void eliminaChef(Long id) {
+        this.chefRepo.deleteById(id);
     }
 }

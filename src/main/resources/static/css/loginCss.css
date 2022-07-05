@@ -1,0 +1,65 @@
+
+.forms {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    height:1000px;
+    width: 100%;
+}
+#formLogin {
+
+    background-color: bisque;
+    height: 200px;
+    width:400px;
+    position: absolute;
+    margin-top:10%;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+i.showHidePw {
+    cursor: pointer;
+}
+
+.login__btn {
+    margin-top:3%;
+    margin-left:1%;
+    border-style: solid;
+    border-color:black;
+    border-radius: 10px;
+    height:30px;
+}
+
+#form {
+    margin-top:7%;
+    font-size:20px;
+    width:100%;
+}
+
+.input-field-username {
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    width:80%;
+    font-size: 90%;
+}
+
+
+.input-field-psw {
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    width:80%;
+    font-size: 90%;
+}
+
+.title {
+    font-size: 30px;
+    color:black;
+    margin-top:7%;
+    margin-right:22%;
+}
